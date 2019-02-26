@@ -24,7 +24,7 @@ use SimpleXMLElement;
  class Copyscape{
 
     public function __construct(){
-        $this->debug = true;
+        $this->debug = false;
         $this->encode = 'UTF-8';
         $this->client = new Client(['verify' => false, 'base_uri' => 'http://www.copyscape.com/api/']);
         $this->ignoredDomains = array();
@@ -46,6 +46,13 @@ use SimpleXMLElement;
         $this->user = $username;
         $this->key = $api_key;
     }
+
+     /**
+      * @param boolean $debug Set debug mode
+      */
+     public function setDebug($debug){
+         $this->user = $debug;
+     }
 
      /**
       * @param string $domain Add domain to ignore list when do internet search
