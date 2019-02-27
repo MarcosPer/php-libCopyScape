@@ -3,10 +3,10 @@
 namespace Marcosper\Copyscape;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use MarcosPer\Copyscape\Exceptions\ApiException;
-use MarcosPer\Copyscape\Exceptions\InvalidApiException;
-use MarcosPer\Copyscape\Exceptions\NoCreditsException;
-use MarcosPer\Copyscape\Models\Report;
+use Marcosper\Copyscape\Exceptions\ApiException;
+use Marcosper\Copyscape\Exceptions\InvalidApiException;
+use Marcosper\Copyscape\Exceptions\NoCreditsException;
+use Marcosper\Copyscape\Models\Report;
 use SimpleXMLElement;
 
 /**
@@ -28,6 +28,8 @@ use SimpleXMLElement;
         $this->encode = 'UTF-8';
         $this->client = new Client(['verify' => false, 'base_uri' => 'http://www.copyscape.com/api/']);
         $this->ignoredDomains = array();
+        $this->user = "";
+        $this->key = "";
     }
 
      /**
