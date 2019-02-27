@@ -1,6 +1,6 @@
 <?php
 
-namespace MarcosPer\Copyscape;
+namespace Marcosper\Copyscape;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use MarcosPer\Copyscape\Exceptions\ApiException;

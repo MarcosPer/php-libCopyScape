@@ -1,5 +1,5 @@
 <?php
-namespace MarcosPer\Copyscape\Models;
+namespace Marcosper\Copyscape\Models;
 
 /**
  * @property  string viewUrl Report view url

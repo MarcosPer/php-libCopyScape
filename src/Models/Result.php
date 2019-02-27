@@ -1,5 +1,5 @@
 <?php
-namespace MarcosPer\Copyscape\Models;
+namespace Marcosper\Copyscape\Models;
 
 
 /**

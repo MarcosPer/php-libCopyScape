@@ -1,5 +1,5 @@
 <?php
-namespace MarcosPer\Copyscape\Exceptions;
+namespace Marcosper\Copyscape\Exceptions;
 
 use Exception;
 
