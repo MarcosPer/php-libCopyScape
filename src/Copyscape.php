@@ -51,7 +51,14 @@ use SimpleXMLElement;
       * @param boolean $debug Set debug mode
       */
      public function setDebug($debug){
-         $this->user = $debug;
+         $this->debug = $debug;
+     }
+
+     /**
+      * @param boolean $debug Set debug mode
+      */
+     public function isDebug(){
+         return $this->debug;
      }
 
      /**
