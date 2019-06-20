@@ -13,7 +13,7 @@ namespace Marcosper\Copyscape\Models;
  */
 class  Report{
 
-    function __construct($xml,$c = 0)
+    function __construct($xml)
     {
         $this->results = array();
         $this->viewUrl = (string) $xml->allviewurl;
