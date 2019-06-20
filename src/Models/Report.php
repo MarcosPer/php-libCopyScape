@@ -6,22 +6,29 @@ namespace Marcosper\Copyscape\Models;
  * @property  int words Words of request
  * @property  float cost Credits of request
  * @property  array results Results of report
+ * @property int percentage Percent matched of request
  * @author    Marcos Per <marcosperg@gmail.com>
  * @copyright Copyright (c) 2019
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
 class  Report{
 
-    function __construct($xml)
+    function __construct($xml,$c = 0)
     {
         $this->results = array();
         $this->viewUrl = (string) $xml->allviewurl;
         $this->words = (int) $xml->querywords;
         $this->cost = (float) $xml->cost;
+        $this->percentage = 0;
 
         if($xml->count > 0){
-            foreach ($xml->result as $result){
-                array_push($this->results,new Result($result));
+            foreach ($xml->result as $xmlResult){
+                $result = new Result($xmlResult);
+
+                //Find the highest matchpercent
+                if($result->getPercentMatched() !== null && $result->getPercentMatched() > $this->percentage) $this->percentage = $result->getPercentMatched();
+
+                array_push($this->results,$result);
             }
         }
     }
@@ -31,6 +38,13 @@ class  Report{
      */
     public function isOriginal(){
         return count($this->results) == 0;
+    }
+
+    /*
+     * Get the highest match percent
+     */
+    public function getMatchedPercent(){
+        return $this->percentage;
     }
 
     /*
